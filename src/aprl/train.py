@@ -1,5 +1,5 @@
 """Uses PPO to training an attack policy against a fixed, embedded policy."""
-
+import pdb
 import functools
 import json
 import logging
@@ -168,8 +168,7 @@ def _stable(
             last_log = step
 
         return True  # keep training
-
-    model.learn(total_timesteps=total_timesteps, log_interval=1, seed=_seed, callback=callback)
+    model.learn(total_timesteps=total_timesteps, log_interval=1, callback=callback)
     final_path = osp.join(out_dir, "final_model")
     _save(model, final_path, save_callbacks)
     model.sess.close()
